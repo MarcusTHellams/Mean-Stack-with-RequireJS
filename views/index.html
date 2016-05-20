@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>My App</title>
+		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="angular-ui-grid/ui-grid.min.css">
+	</head>
+	<body class="space-from-top-of-browser">
+		<div class="container" ng-controller="MainController">
+			<!--TODO TURN THE PAGINATION INTO A DIRECTIVE-->
+			<nav class="clearfix">
+				<div class="pull-left" ng-if="showPagination">
+					<ul class="pagination" style="margin:0">
+						<li ng-if="currentPage > 1">
+							<a ng-click="setCurrentPage(currentPage - 1)" aria-label="Previous" href="javascript:void(0)"><span aria-label="Previous">&lt;&lt; Prev</span></a>
+						</li>
+						<li ng-if="showFirst"><a ng-click="setCurrentPage(1)" href="javascript:void(0)">1</a></li>
+						<li ng-repeat="page in pagination track by $index" ng-class="{active: currentPage === page}"><a ng-click="setCurrentPage(page)" href="javascript:void(0)">{{page}}</a></li>
+						<li ng-if="showLast"><a ng-click="setCurrentPage(last)" href="javascript:void(0)">{{last}}</a></li>
+						<li ng-if="currentPage !== last"><a  aria-label="Next" href="javascript:void(0)"  ng-click="setCurrentPage(currentPage + 1)"><span>Next &gt;&gt;</span></a></li>
+					</ul>
+				</div>
+				<form class="form-inline pull-left" style="margin-left:20px;">
+					<div class="form-group">
+						<label for="">Page</label>
+					<select class="form-control" ng-model="goToPage" ng-options="option for option in dropDownPagination"></select>
+				</div>
+				<div class="form-group">
+					<label for="">Items per page</label>
+					<select class="form-control" ng-model="perPage" ng-init="perpage = perPageOptions[0]" ng-options="option for option in perPageOptions">
+					</select>
+				</div>
+			</form>
+		</nav>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Url</th>
+					<th>Population</th>
+					<th>Date</th>
+					<th>Percentage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="country in countries">
+					<td>{{country.name}}</td>
+					<td><a href="{{country.url}}" target="_blank">{{country.url}}</a></td>
+					<td>{{country.pop}}</td>
+					<td>{{country.date}}</td>
+					<td>{{country.percentage}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pagination">
+				<li ng-if="currentPage > 1">
+					<a ng-click="setCurrentPage(currentPage - 1)" aria-label="Previous" href="javascript:void(0)"><span aria-label="Previous">&lt;&lt; Prev</span></a>
+				</li>
+				<li ng-if="showFirst"><a ng-click="setCurrentPage(1)" href="javascript:void(0)">1</a></li>
+				<li ng-repeat="page in pagination track by $index" ng-class="{active: currentPage === page}"><a ng-click="setCurrentPage(page)" href="javascript:void(0)">{{page}}</a></li>
+				<li ng-if="showLast"><a ng-click="setCurrentPage(last)" href="javascript:void(0)">{{last}}</a></li>
+				<li ng-if="currentPage !== last"><a  aria-label="Next" href="javascript:void(0)"  ng-click="setCurrentPage(currentPage + 1)"><span>Next &gt;&gt;</span></a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<script data-main="js/config.js" src="requirejs/require.js"></script>
+</body>
+</html>
