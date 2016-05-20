@@ -1,3 +1,24 @@
 .space-from-top-of-browser {
-	padding-top: 100px;
+	padding-top: 100px
+}
+
+.space-from-bottom-of-browser {
+	padding-bottom: 100px
+}
+
+.pagination-container {
+	float: left
+}
+
+.pagination-container__pagination-links {
+	margin: 0
+}
+
+.pagination-form {
+	float: left;
+	margin-left: 20px
+}
+
+.pagination-form--no-pagination-links {
+	margin-bottom: 10px
 }

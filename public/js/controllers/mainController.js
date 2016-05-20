@@ -14,6 +14,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.pagination = [];
 		$scope.last = 0;
 		$scope.limit = 3;
+		$scope.classForPaginationForm = 'pagination-form';
 		$scope.setCurrentPage = function(number) {
 
 			if (number < 1) {
@@ -25,7 +26,6 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 			}
 
 			$scope.currentPage = number;
-			// $scope.goToPage = number;
 		};
 		$scope.totalLength = 0;
 		$scope.goToPage = 1;
@@ -38,8 +38,10 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 				fetchFromResource();
 				if (newValue === 'All') {
 					$scope.showPagination = false;
+					$scope.classForPaginationForm = 'pagination-form--no-pagination-links';
 				} else {
 					$scope.showPagination = true;
+					$scope.classForPaginationForm = 'pagination-form';
 				}
 			}
 
