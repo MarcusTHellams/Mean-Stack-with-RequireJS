@@ -2,6 +2,7 @@ define([
 	'angular',
 	'lo-dash',
 	'controllers/index',
+	'directives/index',
 	'ui-grid'
 ], function(
 	angular,
@@ -12,7 +13,8 @@ define([
 	var app = angular.module('myApp', [
 		'ui.grid',
 		'ui.grid.edit',
-		'myApp.controllers'
+		'myApp.controllers',
+		'myApp.directives'
 	]);
 
 });
