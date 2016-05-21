@@ -6,4 +6,6 @@
  **/
 define([
 	'directives/paginationDirective',
+	'directives/outterDirective',
+	'directives/innerDirective'
 ], function() {});

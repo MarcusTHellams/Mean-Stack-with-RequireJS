@@ -30,5 +30,5 @@ require.config({
             exports: 'ui-grid'
         }
     },
-    deps: ['main', 'jQuery']
+    deps: ['main']
 });

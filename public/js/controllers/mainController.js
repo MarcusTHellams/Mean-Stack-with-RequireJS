@@ -13,7 +13,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.currentPage = 1;
 		$scope.pagination = [];
 		$scope.last = 0;
-		$scope.limit = 3;
+		$scope.limit = 5;
 		$scope.classForPaginationForm = 'pagination-form';
 		$scope.setCurrentPage = function(number) {
 
