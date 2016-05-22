@@ -15,6 +15,8 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.last = 0;
 		$scope.limit = 3;
 		$scope.classForPaginationForm = 'pagination-form';
+		$scope.sortType = 'pop'; // set the default sort type
+		$scope.sortReverse = false;
 		$scope.setCurrentPage = function(number) {
 
 			if (number < 1) {

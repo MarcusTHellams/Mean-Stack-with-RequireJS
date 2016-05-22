@@ -7,33 +7,34 @@
 		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="angular-ui-grid/ui-grid.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	</head>
 	<body class="space-from-top-of-browser space-from-bottom-of-browser">
 		<div class="container" ng-controller="MainController">
-		<div pagination></div>
-		<table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Url</th>
-					<th>Population</th>
-					<th>Date</th>
-					<th>Percentage</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="country in countries">
-					<td>{{country.name}}</td>
-					<td><a href="{{country.url}}" target="_blank">{{country.url}}</a></td>
-					<td>{{country.pop}}</td>
-					<td>{{country.date}}</td>
-					<td>{{country.percentage}}</td>
-				</tr>
-			</tbody>
-		</table>
-		<div pagination></div>
-	</div>
-	
-	<script data-main="js/config.js" src="requirejs/require.js"></script>
-</body>
+			<div pagination></div>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th><a href="javascript:void(0)" ng-click="sortType = 'name'; sortReverse = !sortReverse">Name <i class="fa fa-caret-down" ng-show="sortType === 'name' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'name' && sortReverse"></i></a></th>
+						<th><a href="javascript:void(0)" ng-click="sortType = 'url'; sortReverse = !sortReverse">Url <i class="fa fa-caret-down" ng-show="sortType === 'url' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'url' && sortReverse"></i></a></th>
+						<th><a href="javascript:void(0)" ng-click="sortType = 'pop'; sortReverse = !sortReverse">Population <i class="fa fa-caret-down" ng-show="sortType === 'pop' && !sortReverse"></a></i> <i class="fa fa-caret-up" ng-show="sortType === 'pop' && sortReverse"></i></th>
+						<th><a href="javascript:void(0)" ng-click="sortType = 'date'; sortReverse = !sortReverse">Date <i class="fa fa-caret-down" ng-show="sortType === 'date' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'date' && sortReverse"></i></a></th>
+						<th><a href="javascript:void(0)" ng-click="sortType = 'percentage'; sortReverse = !sortReverse">Percentage <i class="fa fa-caret-down" ng-show="sortType === 'percentage' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'percentage' && sortReverse"></i></a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="country in countries | orderBy:sortType:sortReverse">
+						<td>{{country.name}}</td>
+						<td><a href="{{country.url}}" target="_blank">{{country.url}}</a></td>
+						<td>{{country.pop}}</td>
+						<td>{{country.date}}</td>
+						<td>{{country.percentage}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div pagination></div>
+		</div>
+		
+		<script data-main="js/config.js" src="requirejs/require.js"></script>
+	</body>
 </html>
