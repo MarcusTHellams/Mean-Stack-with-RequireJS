@@ -11,9 +11,9 @@
 		</ul>
 	</div>
 	<form class="form-inline {{classForPaginationForm}}">
-		<div class="form-group"  ng-show="showPagination">
+		<div class="form-group"  ng-if="showPagination">
 			<label for="">Page</label>
-		<select class="form-control" ng-model="goToPage" ng-options="option for option in dropDownPagination"></select>
+		<select class="form-control" ng-model="$parent.goToPage" ng-options="option for option in $parent.dropDownPagination"></select>
 	</div>
 	<div class="form-group">
 		<label for="">Items per page</label>
