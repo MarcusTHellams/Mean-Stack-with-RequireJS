@@ -7,15 +7,14 @@ define(['directives/module', 'lo-dash'], function(directives, _) {
 	function innerDirective() {
 		return {
 			restrict: 'A',
-			replace: true,
-			template: '<li>{{page}}</li>',
+			template: '<div third-level-directive></div>{{page}}',
 			scope: {
-				page: '='
+				page: '=',
+				grandParent: '='
 			},
 			link: function(s, elem, attr){
-				console.log(s.page ++);
 				elem.on('click', function(e){
-					console.log(elem[0]);
+					console.log(this);
 				});
 			}
 		};

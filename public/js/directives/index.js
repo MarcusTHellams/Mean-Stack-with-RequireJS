@@ -7,5 +7,6 @@
 define([
 	'directives/paginationDirective',
 	'directives/outterDirective',
-	'directives/innerDirective'
+	'directives/innerDirective',
+	'directives/thirdLevelDirective'
 ], function() {});

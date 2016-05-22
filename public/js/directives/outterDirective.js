@@ -8,7 +8,7 @@ define(['directives/module'], function(directives) {
 		return {
 			restrict: 'A',
 			replace:  true,
-			template: '<ul><div inner-directive ng-repeat="page in dropDownPagination track by $index" page="page"></div></ul>'
+			template: '<ul><li inner-directive ng-repeat="page in dropDownPagination track by $index" page="page"></li></ul>'
 		};
 	}
 });
