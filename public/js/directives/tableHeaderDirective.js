@@ -7,8 +7,11 @@ define(['directives/module'], function(directives) {
 	function tableHeader() {
 		return {
 			restrict: 'A',
-			replace:  true,
-			templateUrl: 'templatestableHeaderDirective.html'
+			templateUrl: 'templates/tableHeaderDirective.html',
+			scope: {
+				label: '@',
+				name: '@'
+			}
 		};
 	}
 });

@@ -17,6 +17,23 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.classForPaginationForm = 'pagination-form';
 		$scope.sortType = 'pop'; // set the default sort type
 		$scope.sortReverse = false;
+		$scope.columnDefinitions = [{
+			name: 'name',
+			label: 'Name'
+		}, {
+			name: 'url',
+			label: 'Url'
+		}, {
+			name: 'pop',
+			label: 'Population'
+		}, {
+			name: 'date',
+			label: 'Date'
+		}, {
+			name: 'percentage',
+			label: 'Percentage'
+		}];
+		
 		$scope.setCurrentPage = function(number) {
 
 			if (number < 1) {

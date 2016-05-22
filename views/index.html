@@ -15,11 +15,7 @@
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th><a href="javascript:void(0)" ng-click="sortType = 'name'; sortReverse = !sortReverse">Name <i class="fa fa-caret-down" ng-show="sortType === 'name' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'name' && sortReverse"></i></a></th>
-						<th><a href="javascript:void(0)" ng-click="sortType = 'url'; sortReverse = !sortReverse">Url <i class="fa fa-caret-down" ng-show="sortType === 'url' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'url' && sortReverse"></i></a></th>
-						<th><a href="javascript:void(0)" ng-click="sortType = 'pop'; sortReverse = !sortReverse">Population <i class="fa fa-caret-down" ng-show="sortType === 'pop' && !sortReverse"></a></i> <i class="fa fa-caret-up" ng-show="sortType === 'pop' && sortReverse"></i></th>
-						<th><a href="javascript:void(0)" ng-click="sortType = 'date'; sortReverse = !sortReverse">Date <i class="fa fa-caret-down" ng-show="sortType === 'date' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'date' && sortReverse"></i></a></th>
-						<th><a href="javascript:void(0)" ng-click="sortType = 'percentage'; sortReverse = !sortReverse">Percentage <i class="fa fa-caret-down" ng-show="sortType === 'percentage' && !sortReverse"></i> <i class="fa fa-caret-up" ng-show="sortType === 'percentage' && sortReverse"></i></a></th>
+						<th ng-repeat="column in columnDefinitions track by $index" table-header name="{{column.name}}" label="{{column.label}}"></th>
 					</tr>
 				</thead>
 				<tbody>
