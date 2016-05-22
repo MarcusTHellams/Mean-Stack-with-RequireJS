@@ -9,8 +9,7 @@ define(['directives/module'], function(directives) {
 			restrict: 'A',
 			templateUrl: 'templates/tableHeaderDirective.html',
 			scope: {
-				label: '@',
-				name: '@'
+				column: '=options'
 			}
 		};
 	}

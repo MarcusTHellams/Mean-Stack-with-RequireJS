@@ -1,5 +1,5 @@
-<a href="javascript:void(0)" ng-click="$parent.$parent.sortType = name; $parent.$parent.sortReverse = !$parent.$parent.sortReverse">
-	{{label}}
-	<i class="fa fa-caret-down" ng-show="$parent.$parent.sortType === name && !$parent.$parent.sortReverse"></i>
-	<i class="fa fa-caret-up" ng-show="$parent.$parent.sortType === name && $parent.$parent.sortReverse"></i>
+<a href="javascript:void(0)" ng-click="$parent.$parent.sortType = column.name; $parent.$parent.sortReverse = !$parent.$parent.sortReverse">
+	{{column.label}}
+	<i class="fa fa-caret-down" ng-show="$parent.$parent.sortType === column.name && !$parent.$parent.sortReverse"></i>
+	<i class="fa fa-caret-up" ng-show="$parent.$parent.sortType === column.name && $parent.$parent.sortReverse"></i>
 </a>

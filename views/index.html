@@ -15,7 +15,7 @@
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th ng-repeat="column in columnDefinitions track by $index" table-header name="{{column.name}}" label="{{column.label}}"></th>
+						<th ng-repeat="column in columnDefinitions track by $index" table-header options="column"></th>
 					</tr>
 				</thead>
 				<tbody>
