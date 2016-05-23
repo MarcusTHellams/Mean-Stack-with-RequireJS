@@ -7,4 +7,5 @@
 define([
 	'directives/paginationDirective',
 	'directives/tableHeaderDirective',
+	'directives/tableCellDirective',
 ], function() {});
