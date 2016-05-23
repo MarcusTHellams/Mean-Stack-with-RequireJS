@@ -7,6 +7,12 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 
 	function MainController($scope, $http) {
 
+		$scope.$on('sortTheColumn', function(e, name, reverse) {
+			$scope.sortReverse = reverse;
+			$scope.sortType = name;
+			$scope.$broadcast('broadcastSort', $scope.sortType);
+		});
+
 		$scope.console = console.log;
 		$scope.showPagination = true;
 		$scope.perPage = 5;
@@ -19,19 +25,29 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.sortReverse = false;
 		$scope.columnDefinitions = [{
 			name: 'name',
-			label: 'Name'
+			label: 'Name',
+			reverse: $scope.sortReverse,
+			sortType: $scope.sortType
 		}, {
 			name: 'url',
-			label: 'Url'
+			label: 'Url',
+			reverse: $scope.sortReverse,
+			sortType: $scope.sortType
 		}, {
 			name: 'pop',
-			label: 'Population'
+			label: 'Population',
+			reverse: $scope.sortReverse,
+			sortType: $scope.sortType
 		}, {
 			name: 'date',
-			label: 'Date'
+			label: 'Date',
+			reverse: $scope.sortReverse,
+			sortType: $scope.sortType
 		}, {
 			name: 'percentage',
-			label: 'Percentage'
+			label: 'Percentage',
+			reverse: $scope.sortReverse,
+			sortType: $scope.sortType
 		}];
 
 		$scope.setCurrentPage = function(number) {
