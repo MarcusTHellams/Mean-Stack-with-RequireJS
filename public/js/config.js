@@ -5,11 +5,16 @@ require.config({
         bootstrap: '../../bootstrap/dist/js/bootstrap.min',
         'ui-router': '../../angular-ui-router/release/angular-ui-router.min',
         'lo-dash': '../../lodash/dist/lodash.min',
-        'ui-grid': '../../angular-ui-grid/ui-grid-unstable'
+        'ui-grid': '../../angular-ui-grid/ui-grid-unstable',
+        'handlebars': '../../handlebars/handlebars.min',
+        'text': '../../text/text'
     },
     shim: {
         angular: {
             exports: 'angular',
+        },
+        handlebars: {
+            exports: 'handlebars'
         },
         'ui-router': {
             exports: 'ui-router',
@@ -30,5 +35,14 @@ require.config({
             exports: 'ui-grid'
         }
     },
-    deps: ['main', 'jQuery']
+    hbs: {
+        templateExtension: '.html',
+        compilerPath: '../../handlebars/handlebars.min'
+    },
+    packages: [{
+        name: 'hbs',
+        location: '../../requirejs-hbs/',
+        main: 'hbs'
+    }],
+    deps: ['text', 'main', 'jQuery']
 });

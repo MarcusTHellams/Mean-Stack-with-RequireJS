@@ -50,6 +50,26 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$scope.goToPage = 1;
 		$scope.perPageOptions = [5, 10, 15, 20, 25, 50, 100, 'All'];
 
+		$scope.options = {
+			data: [],
+			columnDefinitions: [{
+				name: 'name',
+				label: 'Name'
+			}, {
+				name: 'url',
+				label: 'Url'
+			}, {
+				name: 'pop',
+				label: 'Population'
+			}, {
+				name: 'date',
+				label: 'Date'
+			}, {
+				name: 'percentage',
+				label: 'Percentage'
+			}]
+		};
+
 		addCurrentPageWatcher();
 
 		$scope.$watch('perPage', function handleChange(newValue, oldValue) {
@@ -83,7 +103,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 
 		$http.get('/api/territories/' + 0 + '/' + $scope.perPage)
 			.then(function(res) {
-				$scope.countries = res.data;
+				$scope.options.data = res.data;
 			});
 
 
@@ -134,7 +154,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 			}
 
 			$http.get('/api/territories/' + (($scope.currentPage - 1) * perPage) + '/' + $scope.perPage).then(function(res) {
-				$scope.countries = res.data;
+				$scope.options.data = res.data;
 				layOutPaging();
 			});
 		}

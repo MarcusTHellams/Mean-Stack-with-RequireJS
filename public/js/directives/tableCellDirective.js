@@ -1,14 +1,18 @@
-define(['directives/module'], function(directives) {
+define(['directives/module', 'hbs!../../templates/tableCellDirective'], function(directives, tds) {
 	'use strict';
 
+	directives.directive('tableCellDirective', tableCellDirective);
 
-	directives.directive('tableCell', tableCell);
-
-	function tableCell() {
+	function tableCellDirective() {
 		return {
-			restrict: 'E',
-			replace: true,
-			templateUrl: 'templates/tableCellDirective.html'
+			restrict: 'A',
+			scope: {
+				options: '=tableCellDirective'
+			},
+			link: function(s,ele,attr){
+				console.log(tds(s.options));
+			}
+
 		};
 	}
 });

@@ -15,16 +15,11 @@
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th ng-repeat="column in columnDefinitions track by $index" table-header options="column"></th>
+						<th ng-repeat="column in options.columnDefinitions track by $index" table-header options="column"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="country in countries | orderBy:sortType:sortReverse">
-						<td>{{country.name}}</td>
-						<td><a href="{{country.url}}" target="_blank">{{country.url}}</a></td>
-						<td>{{country.pop}}</td>
-						<td>{{country.date}}</td>
-						<td>{{country.percentage}}</td>
+					<tr ng-repeat="country in options.data | orderBy:sortType:sortReverse" table-cell-directive="options">
 					</tr>
 				</tbody>
 			</table>
