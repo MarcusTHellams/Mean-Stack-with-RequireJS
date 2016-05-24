@@ -19,7 +19,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="country in options.data | orderBy:sortType:sortReverse" table-cell-directive="options">
+					<tr ng-repeat="column in options.data | orderBy:sortType:sortReverse" table-cell-directive="options" column="column">
 					</tr>
 				</tbody>
 			</table>

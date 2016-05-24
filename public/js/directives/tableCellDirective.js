@@ -1,4 +1,4 @@
-define(['directives/module', 'hbs!../../templates/tableCellDirective'], function(directives, tds) {
+define(['directives/module', 'hbs!../../templates/tableCellDirective', 'lo-dash'], function(directives, tds, _) {
 	'use strict';
 
 	directives.directive('tableCellDirective', tableCellDirective);
@@ -7,10 +7,13 @@ define(['directives/module', 'hbs!../../templates/tableCellDirective'], function
 		return {
 			restrict: 'A',
 			scope: {
-				options: '=tableCellDirective'
+				options: '=tableCellDirective',
+				column: '='
 			},
-			link: function(s,ele,attr){
-				console.log(tds(s.options));
+			// templateUrl: 'templates/tableCellDirective.html',
+			'template':'<td ng-inculde="templates/tableCellDirective.html" ng-repeat="def in options.columnDefinitions">{{column[def.name]}}</td>',
+			link: function(s, ele, attr) {
+				console.log(s);
 			}
 
 		};
