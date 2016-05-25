@@ -30,29 +30,34 @@ define(['directives/module', 'hbs!../../templates/tableCellDirective'], function
 				column: '=',
 				options: '='
 			},
-			'template': '<span>{{column[definition.name]}}</span>',
+			'template': '<div tabindex="0" data-rendered>{{column[definition.name]}}</div> <div class="hidden" data-input class="form-group">' +
+				'<label class="sr-only" for=""></label>' +
+				'<input type="text" class="form-control" id="" ng-model="column[definition.name]" ng-model-options="{updateOn: \'blur\'}">' +
+				'</div>',
 			link: function(s, ele, attr) {
 				var oldText = ele.html();
-				console.log(oldText);
 				var input = $('<input />').attr('ng-model', s.column[s.definition.name]);
-				input = '<div class="form-group">' +
-					'<label class="sr-only" for=""></label>' +
-					'<input type="text" class="form-control" id="" ng-model="column[definition.name]">' +
-					'</div>';
-				ele.one('dblclick', swapTextForInput);
+				ele.find('[data-rendered]').on('click focus', swapTextForInput);
+				ele.find('[data-input] :input').on('blur', swapTextForInput);
+
+				console.log(findPatriarch(s));
+
+				s.$emit('annouceYourSelf');
+
 
 				function swapTextForInput(e) {
-					$compile(input)(s, function(cloned, s) {
-						ele.html(cloned);
-					});
 
-					ele.find(':input').one('blur focusout', function(e) {
-						$compile(oldText)(s, function(cloned, s) {
-							console.log(cloned);
-							ele.html(cloned);
-						});
+					ele.find('[data-rendered], [data-input]').toggleClass('hidden');
+					ele.find('[data-input] :input').focus();
+				}
 
-					});
+				function findPatriarch(scope){
+					if(!scope.$parent){
+
+						return scope;
+					} else {
+						findPatriarch(scope.$parent);
+					}
 				}
 			}
 

@@ -7,6 +7,10 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 
 	function MainController($scope, $http) {
 
+		$scope.$on('annouceYourSelf', function(e){
+			console.log('I HERE');
+		});
+
 		$scope.console = console.log;
 		$scope.showPagination = true;
 		$scope.perPage = 5;
@@ -104,6 +108,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$http.get('/api/territories/' + 0 + '/' + $scope.perPage)
 			.then(function(res) {
 				$scope.options.data = res.data;
+				console.log($scope.options.data);
 			});
 
 
