@@ -7,11 +7,16 @@ require.config({
         'lo-dash': '../../lodash/dist/lodash.min',
         'ui-grid': '../../angular-ui-grid/ui-grid-unstable',
         'handlebars': '../../handlebars/handlebars.min',
-        'text': '../../text/text'
+        'text': '../../text/text',
+        'sanitize': 'angular-sanitize.min'
     },
     shim: {
         angular: {
             exports: 'angular',
+        },
+        sanitize: {
+            exports: 'sanitize',
+            deps: ['angular']
         },
         handlebars: {
             exports: 'handlebars'

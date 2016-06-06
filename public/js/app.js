@@ -3,7 +3,9 @@ define([
 	'lo-dash',
 	'controllers/index',
 	'directives/index',
-	'ui-grid'
+	'filters/index',
+	'ui-grid',
+	'sanitize'
 ], function(
 	angular,
 	_
@@ -14,7 +16,9 @@ define([
 		'ui.grid',
 		'ui.grid.edit',
 		'myApp.controllers',
-		'myApp.directives'
+		'myApp.directives',
+		'myApp.filters',
+		'ngSanitize'
 	]);
 
 });

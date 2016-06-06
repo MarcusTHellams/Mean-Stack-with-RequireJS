@@ -30,7 +30,7 @@ define(['directives/module', 'hbs!../../templates/tableCellDirective'], function
 				column: '=',
 				options: '='
 			},
-			'template': '<div tabindex="0" data-rendered>{{column[definition.name]}}</div> <div class="hidden" data-input class="form-group">' +
+			'template': '<div tabindex="0" ng-bind-html="column[definition.name] | uri" data-rendered></div> <div class="hidden" data-input class="form-group">' +
 				'<label class="sr-only" for=""></label>' +
 				'<input type="text" class="form-control" id="" ng-model="column[definition.name]" ng-model-options="{updateOn: \'blur\'}">' +
 				'</div>',
