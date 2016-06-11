@@ -40,10 +40,6 @@ define(['directives/module', 'hbs!../../templates/tableCellDirective'], function
 				ele.find('[data-rendered]').on('click focus', swapTextForInput);
 				ele.find('[data-input] :input').on('blur', swapTextForInput);
 
-				console.log(findPatriarch(s));
-
-				s.$emit('annouceYourSelf');
-
 
 				function swapTextForInput(e) {
 

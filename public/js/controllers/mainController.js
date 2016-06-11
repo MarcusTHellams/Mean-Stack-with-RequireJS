@@ -108,7 +108,6 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 		$http.get('/api/territories/' + 0 + '/' + $scope.perPage)
 			.then(function(res) {
 				$scope.options.data = res.data;
-				console.log($scope.options.data);
 			});
 
 

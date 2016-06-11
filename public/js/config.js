@@ -8,11 +8,16 @@ require.config({
         'ui-grid': '../../angular-ui-grid/ui-grid-unstable',
         'handlebars': '../../handlebars/handlebars.min',
         'text': '../../text/text',
-        'sanitize': 'angular-sanitize.min'
+        'sanitize': 'angular-sanitize.min',
+        'ng-bootstrap': '../angular-ui-bootstrap/dist/ui-bootstrap'
     },
     shim: {
         angular: {
             exports: 'angular',
+        },
+        'ng-bootstrap': {
+            deps: ['angular'],
+            exports: 'ng-bootstrap'
         },
         sanitize: {
             exports: 'sanitize',

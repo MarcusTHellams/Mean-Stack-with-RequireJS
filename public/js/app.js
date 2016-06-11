@@ -5,7 +5,8 @@ define([
 	'directives/index',
 	'filters/index',
 	'ui-grid',
-	'sanitize'
+	'sanitize',
+	'ng-bootstrap'
 ], function(
 	angular,
 	_
@@ -18,7 +19,8 @@ define([
 		'myApp.controllers',
 		'myApp.directives',
 		'myApp.filters',
-		'ngSanitize'
+		'ngSanitize',
+		'ui.bootstrap'
 	]);
 
 });
