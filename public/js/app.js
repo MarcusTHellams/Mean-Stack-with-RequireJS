@@ -16,7 +16,7 @@ define([
 
 	run.$inject = ['editableOptions'];
 
-	var app = angular.module('myApp', [
+	angular.module('myApp', [
 			'ui.grid',
 			'ui.grid.edit',
 			'myApp.controllers',
@@ -31,6 +31,7 @@ define([
 
 	function run(editableOptions) {
 		editableOptions.theme = 'bs3';
+		editableOptions.buttons = 'no';
 	}
 
 });

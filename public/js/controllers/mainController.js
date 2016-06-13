@@ -7,7 +7,7 @@ define(['controllers/module', 'lo-dash', 'ui-grid'], function(controllers, _) {
 
 	function MainController($scope, $http) {
 
-		$scope.$on('annouceYourSelf', function(e){
+		$scope.$on('annouceYourSelf', function(e) {
 			console.log('I HERE');
 		});
 
