@@ -9,7 +9,8 @@ require.config({
         'handlebars': '../../handlebars/handlebars.min',
         'text': '../../text/text',
         'sanitize': 'angular-sanitize.min',
-        'ng-bootstrap': '../angular-ui-bootstrap/dist/ui-bootstrap'
+        'ng-bootstrap': '../angular-ui-bootstrap/dist/ui-bootstrap',
+        'ng-editable': '../../angular-xeditable/dist/js/xeditable.min'
     },
     shim: {
         angular: {
@@ -18,6 +19,10 @@ require.config({
         'ng-bootstrap': {
             deps: ['angular'],
             exports: 'ng-bootstrap'
+        },
+        'ng-editable': {
+            deps: ['angular'],
+            exports: 'ng-editable'
         },
         sanitize: {
             exports: 'sanitize',
