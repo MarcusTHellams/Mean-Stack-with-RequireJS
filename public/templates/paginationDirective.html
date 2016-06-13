@@ -1,14 +1,6 @@
 <nav class="clearfix">
 	<div class="pagination-container" ng-if="showPagination">
-		<ul class="pagination pagination-container__pagination-links">
-			<li ng-if="currentPage > 1">
-				<a ng-click="setCurrentPage(currentPage - 1)" aria-label="Previous" href="javascript:void(0)"><span aria-label="Previous">&lt;&lt; Prev</span></a>
-			</li>
-			<li ng-if="showFirst"><a ng-click="setCurrentPage(1)" href="javascript:void(0)">1</a></li>
-			<li ng-repeat="page in pagination track by $index" ng-class="{active: currentPage === page}"><a ng-click="setCurrentPage(page)" href="javascript:void(0)">{{page}}</a></li>
-			<li ng-if="showLast"><a ng-click="setCurrentPage(last)" href="javascript:void(0)">{{last}}</a></li>
-			<li ng-if="currentPage !== last"><a  aria-label="Next" href="javascript:void(0)"  ng-click="setCurrentPage(currentPage + 1)"><span>Next &gt;&gt;</span></a></li>
-		</ul>
+		<uib-pagination total-items="$parent.totalLength" ng-model="$parent.currentPage" items-per-page="$parent.perPage" max-size="5" force-ellipses="true" boundary-link-numbers="true"></uib-pagination>
 	</div>
 	<form class="form-inline {{classForPaginationForm}}">
 		<div class="form-group"  ng-if="showPagination">

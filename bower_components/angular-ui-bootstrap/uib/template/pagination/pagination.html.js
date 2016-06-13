@@ -1,5 +1,5 @@
 angular.module("uib/template/pagination/pagination.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("uib/template/pagination/pagination.html",
+  $templateCache.put("template/pagination/pagination.html",
     "<ul class=\"pagination\">\n" +
     "  <li ng-if=\"::boundaryLinks\" ng-class=\"{disabled: noPrevious()||ngDisabled}\" class=\"pagination-first\"><a href ng-click=\"selectPage(1, $event)\">{{::getText('first')}}</a></li>\n" +
     "  <li ng-if=\"::directionLinks\" ng-class=\"{disabled: noPrevious()||ngDisabled}\" class=\"pagination-prev\"><a href ng-click=\"selectPage(page - 1, $event)\">{{::getText('previous')}}</a></li>\n" +
